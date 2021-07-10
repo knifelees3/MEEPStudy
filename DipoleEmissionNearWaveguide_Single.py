@@ -36,7 +36,7 @@ pos_z=height+0.005
 
 pt= mp.Vector3( pos_x, pos_y, pos_z)
 
-resolution=200
+resolution=100
 numx=int(width_cal*resolution)
 numy=int(height_cal*resolution)
 x_list=np.linspace(-width_cal/2,width_cal/2,numx)
@@ -101,10 +101,10 @@ box_z2 = sim.add_flux(omega, 0, 1,
 mp.FluxRegion(center=mp.Vector3(pos_x,pos_y,pos_z+size_z/2),size=mp.Vector3(size_x,size_y,0)))
 
 # %%
-# sim.run(until_after_sources=
-# mp.stop_when_fields_decayed(20, mp.Ey, pt, 1e-3))
-# sim.run(until_after_sources=20)
-sim.run(until=20)
+sim.run(until_after_sources=
+mp.stop_when_fields_decayed(50, mp.Ey, pt, 1e-5))
+#sim.run(until_after_sources=20)
+# sim.run(until=20)
 # %%
 x1 = mp.get_fluxes(box_x1)
 x2 = mp.get_fluxes(box_x2)
